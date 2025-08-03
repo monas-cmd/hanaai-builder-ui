@@ -14,9 +14,9 @@ const DomainSelector = () => {
         // Generate domain suggestions based on business name
         const suggestions = [
           `${userData.businessName.toLowerCase().replace(/\s+/g, '')}.com`,
-          `${userData.businessName.toLowerCase().replace(/\s+/g, '-')}.com`,
-          `${userData.businessName.toLowerCase().split(' ')[0]}.com`,
-          `get${userData.businessName.toLowerCase().replace(/\s+/g, '')}.com`
+          `by${userData.businessName.toLowerCase().replace(/\s+/g, '-')}.com`,
+          `with${userData.businessName.toLowerCase().split(' ')[0]}.net`,
+          `get${userData.businessName.toLowerCase().replace(/\s+/g, '')}.org`
         ];
 
         // Check availability for each domain
