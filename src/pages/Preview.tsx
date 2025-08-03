@@ -21,60 +21,119 @@ const Preview = () => {
     const palette = colors[userData.colorPalette as keyof typeof colors] || colors['Ocean Blue'];
 
     return `
-      <!DOCTYPE html>
-      <html>
-      <head>
-        <title>${userData.businessName} Preview</title>
-        <style>
-          body { 
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f8f9fa;
-          }
-          .header {
-            background: linear-gradient(135deg, ${palette.primary}, ${palette.secondary});
-            color: white;
-            padding: 3rem 1rem;
-            text-align: center;
-          }
-          .content {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-          }
-          .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1rem;
-          }
-          .feature-card {
-            background: white;
-            border-radius: 8px;
-            padding: 1.5rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-          }
-        </style>
-      </head>
-      <body>
-        <div class="header">
-          <h1>${userData.businessName}</h1>
-          <p>${userData.theme} Theme Preview</p>
-        </div>
-        <div class="content">
-          <div class="features">
-            <div class="feature-card">
-              <h3>Our Services</h3>
-              <p>Professional services tailored to your needs</p>
-            </div>
-            <div class="feature-card">
-              <h3>About Us</h3>
-              <p>Learn about our company and values</p>
-            </div>
-          </div>
-        </div>
-      </body>
-      </html>
+     <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>${userData.businessName} Preview</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, ${palette.primary}, ${palette.secondary});
+      color: white;
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    .header p {
+      margin-top: 0.5rem;
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    /* Content */
+    .content {
+      flex: 1;
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .feature-card {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #fff;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      font-size: 0.9rem;
+      color: #666;
+      border-top: 1px solid #e0e0e0;
+    }
+
+    /* Responsive Typography */
+    @media (max-width: 600px) {
+      .header h1 {
+        font-size: 2rem;
+      }
+
+      .header p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <h1>${userData.businessName}</h1>
+    <p>${userData.theme} Theme Preview</p>
+  </header>
+
+  <!-- Main Content -->
+  <main class="content">
+    <div class="features">
+      <div class="feature-card">
+        <h3>Our Services</h3>
+        <p>Professional services tailored to your needs.</p>
+      </div>
+      <div class="feature-card">
+        <h3>About Us</h3>
+        <p>Learn about our company and values.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    &copy; ${new Date().getFullYear()} ${userData.businessName}. All rights reserved.
+  </footer>
+</body>
+</html>
     `;
   };
 
