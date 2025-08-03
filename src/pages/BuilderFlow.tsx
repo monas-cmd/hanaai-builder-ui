@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useAppContext } from '../contexts/AppContext';
-import HanaAI from '../components/ai/HanaAI';
+import HanaAI from '../components/ai/HanaAi';
 import DomainSelector from '../components/builder/DomainSelector';
 import ColorPicker from '../components/builder/ColorPicker';
 import ThemeSelector from '../components/builder/ThemeSelector';
